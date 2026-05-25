@@ -32,7 +32,7 @@ This project helped build practical understanding of Linux administration, web s
 
 The objective of this project is to configure and troubleshoot multiple web servers running simultaneously on a single Linux EC2 instance.
 
-### Key Objectives
+## Key Objectives
 
 - Configure NGINX on port 80
 - Configure Apache on custom port 83
@@ -106,7 +106,6 @@ nginx-httpd-troubleshooting-lab/
     └── project-flow.md
 ```
 
-
 ---
 
 # 🌍 AWS Region
@@ -142,235 +141,79 @@ us-east-2 (Ohio)
 
 ---
 
-# 🚀 Lab Implementation Steps
+# 🚀 Implementation Steps
 
-## Step 1: Launch EC2 Instance
-
-Created RedHat Linux EC2 instance.
-
-| Configuration | Value |
-|---|---|
-| Instance Name | linux-server |
-| Instance Type | t3.micro |
-| Region | us-east-2 |
-| Operating System | RedHat Linux |
-
----
-
-## Step 2: Configure Security Group
-
-Configured inbound rules:
-
-| Protocol | Port | Purpose |
-|---|---|---|
-| SSH | 22 | Remote Access |
-| HTTP | 80 | NGINX Access |
-| Custom TCP | 83 | Apache Access |
+1. Launched Red Hat Linux EC2 instance
+2. Configured Security Group rules for ports 22, 80, and 83
+3. Connected EC2 instance using SSH
+4. Installed NGINX and Apache HTTP Server
+5. Started web server services
+6. Configured Apache to listen on port 83
+7. Verified listening ports using ss command
+8. Troubleshooted service issues using journalctl
+9. Configured SELinux for custom Apache port
+10. Verified browser access for:
+   - NGINX on port 80
+   - Apache on port 83
 
 ---
 
-## Step 3: Install NGINX & Apache
+# 🐧 Linux Commands Documentation
 
-Installed packages:
+Detailed command documentation available here:
 
-```bash
-yum install nginx httpd -y
-```
-
----
-
-## Step 4: Configure NGINX
-
-Started nginx:
-
-```bash
-systemctl start nginx
-```
-
-Enabled nginx:
-
-```bash
-systemctl enable nginx
-```
-
-Configured webpage:
-
-```html
-<h1>nginx</h1>
-```
+- [NGINX + HTTPD Commands](commands/nginx-httpd-commands.md)
+- [SELinux Commands](commands/selinux-commands.md)
+- [SS Networking Commands](commands/ss-commands.md)
+- [journalctl Commands](commands/journalctl-commands.md)
+- [Troubleshooting Commands](commands/troubleshooting-commands.md)
 
 ---
 
-## Step 5: Configure Apache HTTPD
+# 📝 Additional Notes
 
-Edited configuration:
+Detailed conceptual and troubleshooting notes available here:
 
-```bash
-vi /etc/httpd/conf/httpd.conf
-```
-
-Changed:
-
-```apache
-Listen 80
-```
-
-To:
-
-```apache
-Listen 83
-```
-
-Configured webpage:
-
-```html
-<h1>apache</h1>
-```
+- [NGINX Notes](notes/nginx-notes.md)
+- [Apache Notes](notes/apache-notes.md)
+- [SELinux Notes](notes/selinux-notes.md)
+- [journalctl Notes](notes/journalctl-notes.md)
+- [Troubleshooting Notes](notes/troubleshooting-notes.md)
 
 ---
 
-## Step 6: Troubleshooting Apache Failure
+# 📄 Project Workflow Documentation
 
-Initially Apache failed because:
+Complete project workflow available here:
 
-- Port conflict
-- SELinux restrictions
-
-Checked logs using:
-
-```bash
-journalctl -xeu httpd
-```
-
-Verified ports using:
-
-```bash
-ss -tulnp
-```
-
----
-
-## Step 7: SELinux Troubleshooting
-
-Temporary fix:
-
-```bash
-setenforce 0
-```
-
-Permanent fix:
-
-```bash
-yum install policycoreutils-python-utils -y
-```
-
-```bash
-semanage port -a -t http_port_t -p tcp 83
-```
-
----
-
-## Step 8: Validate Services
-
-Checked service status:
-
-```bash
-systemctl status nginx
-```
-
-```bash
-systemctl status httpd
-```
-
----
-
-## Step 9: Browser Validation
-
-### NGINX
-
-```text
-http://PUBLIC-IP
-```
-
-Output:
-
-```text
-nginx
-```
-
----
-
-### APACHE
-
-```text
-http://PUBLIC-IP:83
-```
-
-Output:
-
-```text
-apache
-```
-
----
-
-# 🐧 Linux Commands Used
-
-| Command | Purpose |
-|---|---|
-| `systemctl status httpd` | Check Apache status |
-| `systemctl restart nginx` | Restart nginx |
-| `journalctl -xeu httpd` | Apache troubleshooting logs |
-| `ss -tulnp` | Check listening ports |
-| `httpd -t` | Verify Apache syntax |
-| `nginx -t` | Verify nginx syntax |
-| `setenforce 0` | Disable SELinux temporarily |
-| `semanage port -a -t http_port_t -p tcp 83` | Allow custom port |
+- [Project Flow](docs/project-flow.md)
 
 ---
 
 # 📸 Screenshots
 
+## EC2 Instance Running
 
-## 1. EC2 Instance Running
-
-![EC2 Instance](screenshots/01-ec2-instance-running.png)
-
----
-
-## 2. Security Group Rules
-
-![Security Group](screenshots/02-security-group-rules.png)
+![EC2](./screenshots/01-ec2-instance-running.png)
 
 ---
 
-## 3. NGINX Browser Output
+## Security Group Rules
 
-![NGINX Output](screenshots/03-nginx-browser-output.png)
-
----
-
-## 4. Apache Browser Output on Port 83
-
-![Apache Output](screenshots/04-apache-browser-output-port83.png)
+![Security Group](./screenshots/02-security-group-rules.png)
 
 ---
 
-## 5. Package Installation and Verification
+## NGINX Browser Output
 
-![Package Installation](screenshots/05-package-installation-and-verification.png)
-
----
-
-## 6. Port Verification using ss Command
-
-![SS Command](screenshots/06-port-verification-ss-command.png)
+![NGINX Output](./screenshots/03-nginx-browser-output.png)
 
 ---
 
-## 7. journalctl HTTPD Troubleshooting
+## Apache Browser Output on Port 83
 
-![journalctl Troubleshooting](screenshots/07-journalctl-httpd-troubleshooting.png)
+![Apache Output](./screenshots/04-apache-browser-output-port83.png)
+
 ---
 
 # 🔐 Security Concepts Learned
