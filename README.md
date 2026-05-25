@@ -322,28 +322,47 @@ apache
 
 # 📸 Screenshots
 
-## Security Group Rules
+---
 
-![Security Group](./screenshots/01-security-group.png)
+## 1. EC2 Instance Running
+
+![EC2 Instance](screenshots/01-ec2-instance-running.png)
 
 ---
 
-## Listening Ports Validation
+## 2. Security Group Rules
 
-![SS Output](./screenshots/04-ss-output.png)
-
----
-
-## NGINX Browser Output
-
-![NGINX](./screenshots/06-nginx-browser-output.png)
+![Security Group](screenshots/02-security-group-rules.png)
 
 ---
 
-## Apache Browser Output
+## 3. NGINX Browser Output
 
-![Apache](./screenshots/07-apache-browser-output.png)
+![NGINX Output](screenshots/03-nginx-browser-output.png)
 
+---
+
+## 4. Apache Browser Output on Port 83
+
+![Apache Output](screenshots/04-apache-browser-output-port83.png)
+
+---
+
+## 5. Package Installation and Verification
+
+![Package Installation](screenshots/05-package-installation-and-verification.png)
+
+---
+
+## 6. Port Verification using ss Command
+
+![SS Command](screenshots/06-port-verification-ss-command.png)
+
+---
+
+## 7. journalctl HTTPD Troubleshooting
+
+![journalctl Troubleshooting](screenshots/07-journalctl-httpd-troubleshooting.png)
 ---
 
 # 🔐 Security Concepts Learned
