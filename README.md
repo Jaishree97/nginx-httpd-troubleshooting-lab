@@ -80,23 +80,32 @@ nginx-httpd-troubleshooting-lab/
 ├── README.md
 │
 ├── screenshots/
-│   ├── 01-security-group.png
-│   ├── 02-nginx-running.png
-│   ├── 03-httpd-running.png
-│   ├── 04-ss-output.png
-│   ├── 05-journalctl-logs.png
-│   ├── 06-nginx-browser-output.png
-│   └── 07-apache-browser-output.png
+│   ├── 01-ec2-instance-running.png
+│   ├── 02-security-group-rules.png
+│   ├── 03-nginx-browser-output.png
+│   ├── 04-apache-browser-output-port83.png
+│   ├── 05-package-installation-and-verification.png
+│   ├── 06-port-verification-ss-command.png
+│   └── 07-journalctl-httpd-troubleshooting.png
 │
 ├── commands/
+│   ├── nginx-httpd-commands.md
+│   ├── selinux-commands.md
+│   ├── ss-commands.md
+│   ├── journalctl-commands.md
 │   └── troubleshooting-commands.md
 │
-├── configs/
-│   └── httpd.conf
+├── notes/
+│   ├── nginx-notes.md
+│   ├── apache-notes.md
+│   ├── selinux-notes.md
+│   ├── journalctl-notes.md
+│   └── troubleshooting-notes.md
 │
 └── docs/
     └── project-flow.md
 ```
+
 
 ---
 
