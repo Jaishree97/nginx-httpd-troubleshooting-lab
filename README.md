@@ -322,7 +322,6 @@ apache
 
 # 📸 Screenshots
 
----
 
 ## 1. EC2 Instance Running
 
